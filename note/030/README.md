@@ -27,7 +27,8 @@ Output: []
 **Tags:** Hash Table, Two Pointers, String
 
 
-## 思路
+## 思路 0
+遍历string的字符串，挨个匹配，O(n*wordLength)
 
 1. 使用HashMap来保存L中所有的字串。
 
@@ -88,6 +89,27 @@ class Solution {
         return resultList;
     }
 }
+
+```
+
+## 思路 1
+通过滑动窗口的思维，窗口大小为words数组的1个单位。
+
+An O(N) solution with detailed explanation
+
+1. travel all the words combinations to maintain a window
+
+2. there are wl(word len) times travel
+
+3. each time, n/wl words, mostly 2 times travel for each word
+
+4. one left side of the window, the other right side of the window
+
+5. so, time complexity O(wl * 2 * N/wl) = O(2N)
+
+
+```java
+
 
 ```
 

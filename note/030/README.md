@@ -109,7 +109,56 @@ An O(N) solution with detailed explanation
 
 
 ```java
+public List<Integer> findSubstringByWindowSlide(String s, String[] words) {
+        List<Integer> resultList = new ArrayList<Integer>();
+        if (s == null || s.length() == 0 || words == null || words.length == 0) {
+            return resultList;
+        }
+        Map<String, Integer> wordMap = new HashMap<String, Integer>();
 
+        int distinguishCount = 0;
+        for (String word : words) {
+            wordMap.put(word, wordMap.getOrDefault(word, 0) + 1);
+            if (wordMap.get(word) == 1) {
+                distinguishCount += 1;
+            }
+        }
+        int wordLen = words[0].length();
+        int wordCount = words.length;
+        for (int k = 0; k < wordLen; k++) {
+            Map<String, Integer> foundMap = new HashMap<String, Integer>();
+            int foundCount = 0;
+            for (int i = k, j = k; j <= s.length() - wordLen; j = j + wordLen) {
+
+                if (j - i >= wordLen * wordCount) {
+                    String firstWord = s.substring(i, i + wordLen);
+                    if (wordMap.containsKey(firstWord)) {
+                        foundMap.put(firstWord, foundMap.get(firstWord) - 1);
+                        if (foundMap.get(firstWord) == wordMap.get(firstWord) - 1) {
+                            foundCount -= 1;
+                        }
+                    }
+
+                    i += wordLen;
+                }
+
+                String nextWord = s.substring(j, j + wordLen);
+                if (wordMap.containsKey(nextWord)) {
+                    foundMap.put(nextWord, foundMap.getOrDefault(nextWord, 0) + 1);
+                    if (wordMap.get(nextWord) == foundMap.get(nextWord)) {
+                        foundCount += 1;
+                    }
+                }
+
+                if (foundCount == distinguishCount) {
+                    resultList.add(i);
+                }
+            }
+
+        }
+
+        return resultList;
+    }
 
 ```
 

@@ -1,6 +1,6 @@
 # awesome-java-leetcode
 
-数据结构和算法是作为一名程序员必须掌握和善于利用的，为了不让数据结构和算法淡出我的记忆，所以我打算重拾 LeetCode 之 Algorithm，语言选择的是 Java，题库会一点点完善起来，按简单，中等，困难分类，相应难度下按题号排序，源代码在 [src][src] 目录中，相关解题都在 [note][note] 目录中，想要学习数据结构和算法或打算刷 LeetCode 的小伙伴们欢迎 star 哦。
+数据结构和算法是作为一名程序员必须掌握和善于利用的，重拾 LeetCode 之 Algorithm，语言选择的是 Java，题库会一点点完善起来，按简单，中等，困难分类，相应难度下按题号排序，源代码在 [src][src] 目录中，相关解题都在 [note][note] 目录中，想要学习数据结构和算法或打算刷 LeetCode 的小伙伴们欢迎 star 哦。这里的代码是二次修改，因为有些错误，和不完善，fork仓库来源：[Blankj/awesome-java-leetcode](https://github.com/Blankj/awesome-java-leetcode)
 
 附上 LeetCode 上 Facebook 的面试题目序号，希望可以帮助到以后想入 Facebook 的小伙伴:-)
 

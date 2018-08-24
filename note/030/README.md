@@ -40,6 +40,54 @@ Output: []
 4. 使用第二个HashMap来记录我们查到的单词。如果所有的单词都查到了，即可记录一个解。
 
 ```java
+class Solution {
+    public List<Integer> findSubstring(String s, String[] words) {
+        List<Integer> resultList = new ArrayList<Integer>();
+        if (s == null || s.length() == 0 || words == null || words.length == 0) {
+            return resultList;
+        }
+        Map<String, Integer> wordMap = new HashMap<String, Integer>();
+        Map<String, Integer> foundMap = new HashMap<String, Integer>();
+        for (String word: words) {
+            if (wordMap.containsKey(word)) {
+                wordMap.put(word, (wordMap.get(word) + 1));
+            } else {
+                wordMap.put(word, 1);
+            }
+        }
+        int wordCount = words.length;
+        int wordLen = words[0].length();
+        int allLen = wordLen * wordCount;
+
+        for (int i = 0; i <= s.length() - allLen; i++) {
+            foundMap.clear();
+            int foundCount = 0;
+            for (int j = 0; j < wordCount; j++) {
+                String tempWord = s.substring(i + j * wordLen, i + (j + 1) * wordLen);
+                if (wordMap.containsKey(tempWord)) {
+                    if (foundMap.containsKey(tempWord)) {
+                        foundMap.put(tempWord, (foundMap.get(tempWord) + 1));
+                    } else {
+                        foundMap.put(tempWord, 1);
+                    }
+
+                    if (foundMap.get(tempWord) > wordMap.get(tempWord)) {
+                        break;
+                    }
+                    foundCount++;
+                } else {
+                    break;
+                }
+            }
+
+            if (foundCount == wordCount) {
+                resultList.add(i);
+            }
+        }
+
+        return resultList;
+    }
+}
 
 ```
 

@@ -109,7 +109,15 @@ An O(N) solution with detailed explanation
 
 
 ```java
-public List<Integer> findSubstringByWindowSlide(String s, String[] words) {
+class Solution {
+    public List<Integer> findSubstring(String s, String[] words) {
+        //1. method Iterate
+        // return findSubstringByIterate(s, words);
+        //2. method O(n)
+        return findSubstringByWindowSlide(s, words);
+    }
+    
+    public List<Integer> findSubstringByWindowSlide(String s, String[] words) {
         List<Integer> resultList = new ArrayList<Integer>();
         if (s == null || s.length() == 0 || words == null || words.length == 0) {
             return resultList;
@@ -159,6 +167,7 @@ public List<Integer> findSubstringByWindowSlide(String s, String[] words) {
 
         return resultList;
     }
+}
 
 ```
 

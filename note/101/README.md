@@ -83,7 +83,7 @@ class Solution {
             left = q.pop();
             right = q.pop();
             if (left == null && right == null) continue;
-            if (left == null || right == null) return false;
+            if (left == null || right == null) return left == right;
             if (left.val != right.val) return false;
             q.add(left.left);
             q.add(right.right);

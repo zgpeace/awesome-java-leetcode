@@ -24,8 +24,9 @@ public class MyCircularDeque {
         head.next = tail;
         tail.pre = head;
 
-        //head.next = tail;
-        //tail.pre = head;
+        // 下面两句代码，实际是构成循环列表。但是加不加，LeetCode都可以通过。
+        head.pre = tail;
+        tail.next = head;
 
         size = 0;
         capacity = k;

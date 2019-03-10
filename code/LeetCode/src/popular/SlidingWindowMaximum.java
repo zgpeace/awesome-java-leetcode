@@ -45,7 +45,7 @@ public class SlidingWindowMaximum {
             }
             // remove smaller numbers in k range as they are useless
             while (!deque.isEmpty() && nums[deque.peekLast()] < nums[i]) {
-                deque.poll();
+                deque.pollLast();
             }
             // deque contains index... r contains content
             deque.offer(i);
@@ -59,7 +59,8 @@ public class SlidingWindowMaximum {
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,3,-1,-3,5,3,6,7};
+        //int[] nums = {1,3,-1,-3,5,3,6,7};
+        int[] nums = {1,3,1,2,0,5};
         int k = 3;
         SlidingWindowMaximum obj = new SlidingWindowMaximum();
         //int[] windowMax = obj.maxSlidingWindow(nums, k);

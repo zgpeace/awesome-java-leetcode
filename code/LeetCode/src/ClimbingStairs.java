@@ -51,6 +51,75 @@ public class ClimbingStairs {
         return b;
     }
 
+    public static int climbStairsWithRecursion(int n) {
+        if (n == 1) {
+            return 1;
+        } else if (n == 2) {
+            return 2;
+        } else {
+            return climbStairsWithRecursion(n - 1) + climbStairsWithRecursion(n - 2);
+        }
+    }
+
+
+    public static int climbStairsWithRecursionMemory(int n) {
+        int[] memoryArray = new int[n + 1];
+        return subClimbStairsWithRecursionMemory(n - 1, memoryArray) + subClimbStairsWithRecursionMemory(n - 2, memoryArray);
+
+    }
+
+    public static int subClimbStairsWithRecursionMemory(int n, int[] memoryArray) {
+        if (n == 1) {
+            return 1;
+        } else if (n == 2) {
+            return 2;
+        } else {
+            if (memoryArray[n] > 0) {
+                return memoryArray[n];
+            }
+            memoryArray[n] = subClimbStairsWithRecursionMemory(n - 1, memoryArray) + subClimbStairsWithRecursionMemory(n - 2, memoryArray);
+
+            return memoryArray[n];
+        }
+    }
+
+    public static int climbStairsWithDynamic(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        int dynamicArray[] = new int[n + 1];
+        dynamicArray[1] = 1;
+        dynamicArray[2] = 2;
+        for (int i = 3; i <= n; i++) {
+            dynamicArray[i] = dynamicArray[i - 1] + dynamicArray[i - 2];
+        }
+
+        return dynamicArray[n];
+    }
+
+    public static int climbStairsWithFibonacci(int n) {
+        if (n == 1) {
+            return 1;
+        }
+        int first = 1;
+        int second = 2;
+        for (int i = 3; i <= n; i++) {
+            int third = first + second;
+            first = second;
+            second =third;
+        }
+
+        return second;
+    }
+
+
+    public static int climbStairsWithFibonacciFormula(int n) {
+        double sqrt5= Math.sqrt(5);
+        double fibn = Math.pow((1 + sqrt5) / 2, n + 1) - Math.pow((1 - sqrt5) / 2, n + 1);
+        return (int)(fibn / sqrt5);
+    }
+
+
     public static void main(String[] args) {
         int n1 = 2;
         System.out.println("input: " + n1 + " climbStairs: " + climbStairs(n1));
@@ -58,6 +127,11 @@ public class ClimbingStairs {
         System.out.println("input: " + n2 + " climbStairs: " + climbStairs(n2));
         int n3 = 20;
         System.out.println("input: " + n3 + " climbStairs: " + climbStairs(n3));
+        System.out.println("input: " + n3 + " climbStairsWithRecursion: " + climbStairsWithRecursion(n3));
+        System.out.println("input: " + n3 + " climbStairsWithRecursionMemory: " + climbStairsWithRecursionMemory(n3));
+        System.out.println("input: " + n3 + " climbStairsWithDynamic: " + climbStairsWithDynamic(n3));
+        System.out.println("input: " + n3 + " climbStairsWithFibonacci: " + climbStairsWithFibonacci(n3));
+        System.out.println("input: " + n3 + " climbStairsWithFibonacciFormula: " + climbStairsWithFibonacciFormula(n3));
     }
 
 

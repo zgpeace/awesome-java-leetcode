@@ -6,7 +6,8 @@
 | 32   | [Longest Valid Parentheses(最长有效的括号)][32]                           | stack   | LongestValidParentheses |
 | 150  | [Evaluate Reverse Polish Notation(逆波兰表达式求值)][150]| stack   | EvaluateReversePolishNotation |
 | 141  | [Linked List Cycle(环形链表)][141]                           | List   | LinkedListCycle |
-|239   | [Sliding Window Maximum(滑动窗口最大值)][239] | Deque, LinkedList| SlidingWindowMaximum |
+| 239  | [Sliding Window Maximum(滑动窗口最大值)][239] | Deque, LinkedList| SlidingWindowMaximum |
+| 344  | [Reverse String(反转字符串)][344] | String| ReverseString |
 
 
 
@@ -16,3 +17,4 @@
 [150]:https://blog.csdn.net/zgpeace/article/details/88014930
 [141]:https://blog.csdn.net/zgpeace/article/details/87890399
 [239]:https://blog.csdn.net/zgpeace/article/details/88372784
+[344]:https://blog.csdn.net/zgpeace/article/details/88414332

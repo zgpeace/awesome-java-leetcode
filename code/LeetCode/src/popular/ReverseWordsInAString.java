@@ -25,25 +25,32 @@ public class ReverseWordsInAString {
     public String reverseWordsWithLessSpace(String s) {
         char[] chars = s.toCharArray();
         int len = chars.length;
+        // step 1. reverse the whole string
         subReverse(chars, 0, len - 1);
+        // step 2. reverse each word
         subReverseWords(chars, len);
-
+        // step 3. clean up spaces
         return subCleanBlankChar(chars, len);
     }
 
+    // trim leading, trailing and multiple spaces
     public String subCleanBlankChar(char[] chars, int len) {
         int i = 0, j = 0;
         char blankChar = ' ';
         while (j < len) {
+            // skip spaces
             while (j < len && chars[j] == blankChar) {
                 j++;
             }
+            // keep non spaces
             while (j < len && chars[j] != blankChar) {
                 chars[i++] = chars[j++];
             }
+            // skip spaces
             while (j < len && chars[j] == blankChar) {
                 j++;
             }
+            // keep only one space
             if (j < len) {
                 chars[i++] = blankChar;
             }
@@ -56,17 +63,21 @@ public class ReverseWordsInAString {
         char blankChar = ' ';
         int i = 0, j = 0;
         while (j < len) {
+            // skip spaces
             while (j < len && chars[j] == blankChar) {
                 j++;
             }
             i = j;
+            // skip non spaces
             while (j < len && chars[j] != blankChar) {
                 j++;
             }
+            // reverse the word
             subReverse(chars, i, j - 1);
         }
     }
 
+    // reverse a[] from a[i] to a[j]
     public void subReverse(char[] chars, int startIndex, int endIndex) {
         while (startIndex < endIndex) {
             char temp = chars[startIndex];

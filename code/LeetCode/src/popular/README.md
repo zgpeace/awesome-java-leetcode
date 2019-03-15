@@ -9,6 +9,7 @@
 | 239  | [Sliding Window Maximum(滑动窗口最大值)][239] | Deque, LinkedList| SlidingWindowMaximum |
 | 344  | [Reverse String(反转字符串)][344] | String| ReverseString |
 | 151  | [Reverse Words in a String(翻转字符串里的单词)][151] | String| ReverseWordsInAString |
+| 226  | [Invert Binary Tree(翻转二叉树)][226] | String| InvertBinaryTree |
 
 
 
@@ -20,3 +21,4 @@
 [239]:https://blog.csdn.net/zgpeace/article/details/88372784
 [344]:https://blog.csdn.net/zgpeace/article/details/88414332
 [151]:https://blog.csdn.net/zgpeace/article/details/88528127
+[226]:https://blog.csdn.net/zgpeace/article/details/88578011

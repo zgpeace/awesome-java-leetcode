@@ -82,30 +82,9 @@ public class StringToIntegerAtoi {
 
     public static void main(String[] args) {
         StringToIntegerAtoi obj = new StringToIntegerAtoi();
-//        String input = "42";
-//        int output = obj.myAtoni(input);
-//        String input1 = "   -42";
-//        int output1 = obj.myAtoni(input1);
-//        String input2 = "4193 with words";
-//        int output2 = obj.myAtoni(input2);
-//        String input3 = "words and 987";
-//        int output3 = obj.myAtoni(input3);
-//        String input4 = "-91283472332";
-//        int output4 = obj.myAtoni(input4);
         String input5 = "-3924x8fc";
         int output5 = obj.myAtoni(input5);
-//        String input6 = "42";
-//        int output6 = obj.myAtoni(input);
-//        String input7 = "42";
-//        int output7 = obj.myAtoni(input);
-//        System.out.println("input: " + input + " output: " + output);
-//        System.out.println("input: " + input1 + " output: " + output1);
-//        System.out.println("input: " + input2 + " output: " + output2);
-//        System.out.println("input: " + input3 + " output: " + output3);
-//        System.out.println("input: " + input4 + " output: " + output4);
         System.out.println("input: " + input5 + " output: " + output5);
-//        System.out.println("input: " + input6 + " output: " + output6);
-//        System.out.println("input: " + input7 + " output: " + output7);
 
     }
 

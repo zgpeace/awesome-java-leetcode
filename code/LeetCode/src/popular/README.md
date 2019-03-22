@@ -11,7 +11,8 @@
 | 151  | [Reverse Words in a String(翻转字符串里的单词)][151] | String| ReverseWordsInAString |
 | 226  | [Invert Binary Tree(翻转二叉树)][226] | BinaryTree| InvertBinaryTree |
 | 98   | [Validate Binary Search Tree(验证二叉查找树)][98] | BinaryTree| ValidateBinarySearchTree |
-| 200  | [Number of Islands(岛屿的个数)][200] | Map| NumberOfIslands |
+| 200  | [Number of Islands(岛屿的个数)][200] | Graph| NumberOfIslands |
+| 36  | [Valid Sudoku(有效的数独)][36] | Grap| ValidSudoku |
 
 
 
@@ -26,3 +27,4 @@
 [226]:https://blog.csdn.net/zgpeace/article/details/88578011
 [98]:https://blog.csdn.net/zgpeace/article/details/88607678
 [200]:https://blog.csdn.net/zgpeace/article/details/88658439
+[36]:https://blog.csdn.net/zgpeace/article/details/88693835

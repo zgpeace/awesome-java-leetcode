@@ -20,8 +20,9 @@ public class ReverseLinkedList {
     public ListNode reverseListWithoutChangeHead(ListNode head) {
         ListNode current = head;
         ListNode previous = null;
+        ListNode nextNode;
         while (current != null) {
-            ListNode nextNode = current.next;
+            nextNode = current.next;
             current.next = previous;
             previous = current;
             current = nextNode;

@@ -1,3 +1,5 @@
+import common.ListNode;
+
 public class SwapNodesInPairs {
     /*
     Swap Nodes in Pairs

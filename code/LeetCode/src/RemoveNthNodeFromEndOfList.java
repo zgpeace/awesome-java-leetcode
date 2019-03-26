@@ -1,4 +1,4 @@
-import java.lang.reflect.Method;
+import common.ListNode;
 
 public class RemoveNthNodeFromEndOfList {
     /*

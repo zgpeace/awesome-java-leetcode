@@ -1,3 +1,5 @@
+import common.ListNode;
+
 public class AddTwoNumbers {
     /*
     Add Two Numbers

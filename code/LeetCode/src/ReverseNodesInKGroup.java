@@ -1,3 +1,5 @@
+import common.ListNode;
+
 public class ReverseNodesInKGroup {
     /*
     Reverse Nodes in k-Group

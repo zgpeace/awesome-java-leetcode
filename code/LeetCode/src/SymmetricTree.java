@@ -40,10 +40,8 @@ public class SymmetricTree {
         if (leftNode == null || rightNode == null) {
             return leftNode == rightNode;
         }
-        if (leftNode.val != rightNode.val) {
-            return false;
-        }
-        return symmetricHelper(leftNode.left, rightNode.right) && symmetricHelper(leftNode.right, rightNode.left);
+
+        return leftNode.val == rightNode.val && symmetricHelper(leftNode.left, rightNode.right) && symmetricHelper(leftNode.right, rightNode.left);
 
     }
 

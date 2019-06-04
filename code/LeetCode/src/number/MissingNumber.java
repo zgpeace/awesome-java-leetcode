@@ -33,6 +33,21 @@ public class MissingNumber {
     return nums.length;
   }
 
+  public static int missingNumberWithSet(int[] nums) {
+    Set<Integer> set = new HashSet<>();
+    for (int i: nums) {
+      set.add(i);
+    }
+
+    for (int i = 0; i < nums.length; i++) {
+      if (!set.contains(i)) {
+        return i;
+      }
+    }
+
+    return nums.length;
+  }
+
   public static int missingNumberWithSum(int[] nums) {
     int len = nums.length;
     int result = len;
@@ -65,6 +80,15 @@ public class MissingNumber {
 
     // Array was not missing any numbers
     return -1;
+  }
+
+  public static int missingNumberWithBit(int[] nums) {
+    int missing = nums.length;
+    for (int i = 0; i < nums.length; i++) {
+      missing ^= i ^ nums[i];
+    }
+
+    return missing;
   }
 
 

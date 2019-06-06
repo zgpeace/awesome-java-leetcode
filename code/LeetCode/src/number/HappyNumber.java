@@ -60,4 +60,31 @@ public class HappyNumber {
 
     return false;
   }
+
+  public boolean isHappyWithoutSet(int n) {
+    int slow = n;
+    int fast = n;
+    int maxCount = Integer.MAX_VALUE;
+
+    do {
+      slow = calculateHappy(slow);
+      fast = calculateHappy(fast);
+      fast = calculateHappy(fast);
+      maxCount--;
+    } while (slow != fast && maxCount > 0);
+
+    return slow == 1;
+  }
+
+  public int calculateHappy(int current) {
+    int sum = 0;
+    int remainder;
+    while (current != 0) {
+      remainder = current % 10;
+      sum += remainder * remainder;
+      current = current / 10;
+    }
+
+    return sum;
+  }
 }

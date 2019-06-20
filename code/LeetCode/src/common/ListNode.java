@@ -30,4 +30,13 @@ public class ListNode {
         }
         return sb.append("Null").toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        return false;
+    }
 }

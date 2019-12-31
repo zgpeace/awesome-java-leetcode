@@ -27,7 +27,10 @@ public class CombinationSumII {
 
       resultList.add(newList);
     } else if (target > 0) {
-      for (int i = start; i < candidates.length && target >= candidates[i]; i++) {
+       for (int i = start; i < candidates.length && target >= candidates[i]; i++) {
+        /* 表示第一个数字不能跟以前相同，比如这里有两个1，那么[1, 2, 5]， [1,7]，就会有两个。
+         *  第一次以1开头，那么第二个就要以2开头。这里需要调试就能找到规律。
+        */
         if (i > start && candidates[i] == candidates[i - 1]) {
           continue;
         }

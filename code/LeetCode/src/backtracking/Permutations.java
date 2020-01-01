@@ -9,10 +9,10 @@ public class Permutations {
 
   public static void main(String[] args) {
     Permutations obj = new Permutations();
-    obj.permuteWithCleanRecursive(new int[]{1, 2, 3});
+    obj.permuteWithIterate(new int[]{1, 2, 3});
   }
 
-  public List<List<Integer>> permuteWithCleanRecursive(int[] nums) {
+  public List<List<Integer>> permuteWithIterate(int[] nums) {
     LinkedList<List<Integer>> result = new LinkedList<>();
     result.add(new ArrayList<Integer>());
     int size;
@@ -54,6 +54,34 @@ public class Permutations {
       List<Integer> newList = new ArrayList<>(list);
       newList.add(i, nums[start]);
       addItemInAllPosition(nums, start + 1, newList, result);
+    }
+  }
+
+
+  public List<List<Integer>> permuteWithPickupOrNo(int[] nums) {
+    List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+    if (nums == null || nums.length == 0) {
+      return resultList;
+    }
+
+    recursive(nums, new ArrayList<Integer>(), resultList);
+
+    return resultList;
+  }
+
+  public void recursive(int[] nums, List<Integer> list, List<List<Integer>> resultList) {
+    if (list.size() == nums.length) {
+      resultList.add(new ArrayList<Integer>(list));
+      return;
+    }
+
+    for(int item: nums) {
+      if (list.contains(item)) {
+        continue;
+      }
+      list.add(item);
+      recursive(nums, list, resultList);
+      list.remove(list.size() - 1);
     }
   }
 }

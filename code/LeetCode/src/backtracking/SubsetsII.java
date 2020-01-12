@@ -10,7 +10,8 @@ public class SubsetsII {
   public static void main(String[] args) {
     int[] nums = {1,2,2};
     SubsetsII obj = new SubsetsII();
-    List<List<Integer>> resultList = obj.subsetsWithDup(nums);
+    //List<List<Integer>> resultList = obj.subsetsWithDup(nums);
+    List<List<Integer>> resultList = obj.subsetsWithDupIterate(nums);
     System.out.println(Arrays.toString(resultList.toArray()));
   }
 
@@ -18,7 +19,9 @@ public class SubsetsII {
     Arrays.sort(nums);
     List<List<Integer>> resultList = new ArrayList<List<Integer>>();
     // dfs
-    dfs(nums, resultList, new ArrayList<Integer>(), 0);
+    //dfs(nums, resultList, new ArrayList<Integer>(), 0);
+    dfsWithFor(nums, resultList, new ArrayList<Integer>(), 0);
+    //subsetsWithDupHelper(nums, resultList, new ArrayList<Integer>(), 0);
 
     return resultList;
   }
@@ -41,27 +44,50 @@ public class SubsetsII {
 
   }
 
-  // still have some duplicate data
-  //private void dfs1(int[] nums, List<List<Integer>> resultList, List<Integer> list, int start) {
-  //  // exit
-  //  if (start == nums.length) {
-  //    resultList.add(new ArrayList<>(list));
-  //    return;
-  //  }
-  //
-  //  for (int i = start; i < nums.length; i++) {
-  //    // duplicate case
-  //    if (i > start && nums[i] == nums[i - 1]) {
-  //      continue;
-  //    }
-  //
-  //    // pick up
-  //    list.add(nums[i]);
-  //    dfs(nums, resultList, list, i + 1);
-  //
-  //    // not pick up
-  //    list.remove(list.size() - 1);
-  //    dfs(nums, resultList, list, i + 1);
-  //  }
-  //}
+  private void dfsWithFor(int[] nums, List<List<Integer>> resultList, List<Integer> list, int start) {
+    // exit
+    if (start <= nums.length) {
+      resultList.add(new ArrayList<>(list));
+    }
+
+    for (int i = start; i < nums.length; i++) {
+      // duplicate case
+      if (i > start && nums[i] == nums[i - 1]) {
+        continue;
+      }
+
+      // pick up
+      list.add(nums[i]);
+      dfsWithFor(nums, resultList, list, i + 1);
+
+      // not pick up
+      list.remove(list.size() - 1);
+    }
+  }
+
+  public List<List<Integer>> subsetsWithDupIterate(int[] nums) {
+    Arrays.sort(nums);
+    List<List<Integer>> resultList = new ArrayList<List<Integer>>();
+    List<Integer> list = new ArrayList<Integer>();
+    resultList.add(list);
+
+    int duplicateStart = 0;
+    for (int i = 0; i < nums.length; i++) {
+      int begin = 0;
+      int size = resultList.size();
+      if (i > 0 && nums[i] == nums[i - 1]) {
+        begin = duplicateStart;
+      }
+
+      for (int k = begin; k < size; k++) {
+        List<Integer> newList = new ArrayList<Integer>(resultList.get(k));
+        newList.add(nums[i]);
+        resultList.add(newList);
+      }
+
+      duplicateStart = size;
+    }
+
+    return resultList;
+  }
 }

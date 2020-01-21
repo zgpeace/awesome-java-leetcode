@@ -28,7 +28,7 @@ public class CombinationSumIII {
       resultList.add(new ArrayList<Integer>(list));
       return;
     }
-    if (sum < 0 || start > 9) {
+    if (sum < 0) {
       return;
     }
     for (int i = start; i <= 9; i++) {

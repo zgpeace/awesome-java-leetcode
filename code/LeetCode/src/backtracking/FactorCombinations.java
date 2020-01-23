@@ -18,7 +18,8 @@ public class FactorCombinations {
     List<List<Integer>> resultList = new ArrayList<List<Integer>>();
     // DFS
     //dfs(resultList, new ArrayList<Integer>(), n, 2);
-    dfs1(resultList, new ArrayList<Integer>(), n, 2);
+    //dfs1(resultList, new ArrayList<Integer>(), n, 2);
+    dfs2(resultList, new ArrayList<Integer>(), n, 2);
 
     return resultList;
   }
@@ -52,7 +53,21 @@ public class FactorCombinations {
         dfs1(resultList, newList, n / i, i);
 
         newList.add(n / i);
-        resultList.add(new ArrayList<Integer>(newList));
+        resultList.add(newList);
+      }
+    }
+  }
+
+  private void dfs2(List<List<Integer>> resultList, List<Integer> list, int n, int start) {
+    for (int i = start; i * i < n; i++) {
+      if (n % i == 0) {
+        list.add(i);
+        dfs2(resultList, list, n / i, i);
+
+        list.add(n / i);
+        resultList.add(new ArrayList<Integer>(list));
+        list.remove(list.size() - 1);
+        list.remove(list.size() - 1);
       }
     }
   }
